@@ -72,9 +72,9 @@ public class User {
     //Hashcode
     @Override
     public int hashCode() {
-        int result = getUserId().hashCode();
-        result = 31 * result + getUsername().hashCode();
-        result = 31 * result + getPasswordHash().hashCode();
+        int result = getUserId() != null ? getUserId().hashCode() : 0;
+        result = 31 * result + (getUsername() != null ? getUsername().hashCode() : 0);
+        result = 31 * result + (getPasswordHash() != null ? getPasswordHash().hashCode() : 0);
         return result;
     }
 

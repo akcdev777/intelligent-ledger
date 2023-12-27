@@ -66,4 +66,7 @@ public class Asset {
                 '}';
     }
 
+    public void printAsset() {
+        System.out.println("Asset" + this.toString());
+    }
 }//End of Asset class
