@@ -13,7 +13,7 @@ CREATE TABLE Asset (
 
 CREATE TABLE Portfolio (
     portfolioId VARCHAR(36) PRIMARY KEY,
-    userId VARCHAR(36) NOT NULL,
+    userId INT NOT NULL,
     portfolioName VARCHAR(255),
     FOREIGN KEY (userId) REFERENCES User(userId)
 );
@@ -39,3 +39,7 @@ CREATE TABLE NewsFeed (
     timestamp TIMESTAMP NOT NULL,
     FOREIGN KEY (assetId) REFERENCES Asset(assetId)
 );
+
+
+ALTER TABLE User
+MODIFY COLUMN privileges CHAR(50) NOT NULL DEFAULT 'b';

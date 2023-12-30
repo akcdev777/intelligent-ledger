@@ -20,6 +20,12 @@ public class User {
         this.passwordHash = "";
     }
 
+    public User(String username2, String password) {
+
+        this.username = username2;
+        this.passwordHash = password;
+    }
+
     //Getters
     public String getUserId() {
         return userId;
@@ -76,6 +82,10 @@ public class User {
         result = 31 * result + (getUsername() != null ? getUsername().hashCode() : 0);
         result = 31 * result + (getPasswordHash() != null ? getPasswordHash().hashCode() : 0);
         return result;
+    }
+
+    public String getPassword() {
+        return passwordHash;
     }
 
 
