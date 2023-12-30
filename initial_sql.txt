@@ -1,0 +1,41 @@
+CREATE TABLE User (
+    userId VARCHAR(36) PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    passwordHash VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Asset (
+    assetId VARCHAR(36) PRIMARY KEY,
+    symbol VARCHAR(20) NOT NULL,
+    name VARCHAR(255),
+    description VARCHAR(255)
+);
+
+CREATE TABLE Portfolio (
+    portfolioId VARCHAR(36) PRIMARY KEY,
+    userId VARCHAR(36) NOT NULL,
+    portfolioName VARCHAR(255),
+    FOREIGN KEY (userId) REFERENCES User(userId)
+);
+
+CREATE TABLE Transaction (
+    transactionId VARCHAR(36) PRIMARY KEY,
+    portfolioId VARCHAR(36) NOT NULL,
+    assetId VARCHAR(36) NOT NULL,
+    timestamp TIMESTAMP NOT NULL,
+    type VARCHAR(4) NOT NULL, -- Use VARCHAR for enum, values: 'BUY' or 'SELL'
+    quantity DOUBLE NOT NULL,
+    price DOUBLE NOT NULL,
+    fees DOUBLE NOT NULL,
+    FOREIGN KEY (portfolioId) REFERENCES Portfolio(portfolioId),
+    FOREIGN KEY (assetId) REFERENCES Asset(assetId)
+);
+
+CREATE TABLE NewsFeed (
+    newsId VARCHAR(36) PRIMARY KEY,
+    assetId VARCHAR(36) NOT NULL,
+    headline VARCHAR(255) NOT NULL,
+    content TEXT,
+    timestamp TIMESTAMP NOT NULL,
+    FOREIGN KEY (assetId) REFERENCES Asset(assetId)
+);
