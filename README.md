@@ -1,5 +1,6 @@
 
 Inteli Ledger - Trading Ledger Application
+
 Welcome to Inteli Ledger, a robust trading ledger application designed to empower users in managing their trading history, tracking portfolios, and leveraging advanced technologies for price predictions and portfolio optimization.
 
 Project Overview
@@ -28,16 +29,16 @@ Clone the Repository:
 
 bash
 Copy code
-git clone https://github.com/your-username/inteli-ledger.git
+git clone https://github.com/akcdev777/inteli-ledger.git
 Database Configuration:
 
-Ensure you have a local instance of PostgreSQL running.
+Ensure you have a local instance of MySQL running.
 Configure the database connection in application.properties:
 properties
 Copy code
-spring.datasource.url=jdbc:postgresql://localhost:5432/your_database_name
-spring.datasource.username=your_username
-spring.datasource.password=your_password
+spring.datasource.url=jdbc:mysql://localhost:3306/intelligent_ledger
+spring.datasource.username=kopele
+spring.datasource.password=kopele
 spring.jpa.hibernate.ddl-auto=update
 Run the Application:
 
